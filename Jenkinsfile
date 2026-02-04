@@ -67,7 +67,9 @@ pipeline {
             steps {
                 sh '''
                 aws eks update-kubeconfig --region ap-south-1 --name product-cluster
-                kubectl apply -f k8s/
+
+                kubectl apply -f product-service/
+                kubectl apply -f order-service/
                 '''
             }
         }
